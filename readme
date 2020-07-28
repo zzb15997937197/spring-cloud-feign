@@ -1,2 +1,18 @@
 
 1.注意springboot和spring cloud版本的对应关系。
+
+2. 配置feign时，一定要在启动类的@EnableFeignClients()的属性中，添加到所有的@FeignClient()接口。
+
+3. 添加hystrix依赖时
+ <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+            <version>1.2.3.RELEASE</version>
+        </dependency>
+若报错，需要添加:
+<dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-javanica</artifactId>
+            <version>1.5.12</version>
+        </dependency>
+3.在消费方的启动类上添加注解 @EnableCircuitBreaker
