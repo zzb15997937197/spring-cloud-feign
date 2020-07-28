@@ -11,9 +11,13 @@ public class ShoppingController {
 
     @GetMapping("/api/go/shopping/by/id")
     String goShoppingById(@RequestParam("id")Long id){
-        int a=5;
-        int c=a/0;
-        return "调用成功了！";
+        while (true){
+//            int a=5;
+//            int c=a/0;
+//            if (1==1){
+//                return "完成";
+//            }
+        }
     }
 
 
