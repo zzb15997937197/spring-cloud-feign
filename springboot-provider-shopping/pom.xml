@@ -25,6 +25,11 @@
         </dependency>
 
 
+        <!--集成spring security完成认证-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
     </dependencies>
 

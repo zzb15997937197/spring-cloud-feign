@@ -16,3 +16,8 @@
             <version>1.5.12</version>
         </dependency>
 3.在消费方的启动类上添加注解 @EnableCircuitBreaker
+
+4.集成hystrix时消费方需要在properties文件中添加:
+feign.hystrix.enabled=true
+
+否则配置不生效
