@@ -1,29 +1,34 @@
 
 1.注意springboot和spring cloud版本的对应关系。
 
+
 2. 配置feign时，一定要在启动类的@EnableFeignClients()的属性中，添加到所有的@FeignClient()接口。
 
 3. 添加hystrix依赖时
- <dependency>
+       <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
             <version>1.2.3.RELEASE</version>
         </dependency>
 若报错，需要添加:
-<dependency>
+       <dependency>
             <groupId>com.netflix.hystrix</groupId>
             <artifactId>hystrix-javanica</artifactId>
             <version>1.5.12</version>
         </dependency>
+
 3.在消费方的启动类上添加注解 @EnableCircuitBreaker
 
 4.集成hystrix时消费方需要在properties文件中添加:
 feign.hystrix.enabled=true
-
 否则配置不生效
-
 
 5. feign添加读取时间的配置:
 feign.httpclient.enabled=true
 feign.client.config.default.connect-timeout=5000
 feign.client.config.default.read-timeout=1000
+不宜过长也不宜过短
+
+6. feign怎么去使用spring security 验证访问的请求？
+    feign与spring security集成。
+    项目中(HCF) 使用的是OATUH2来验证feign请求。
